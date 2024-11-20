@@ -177,7 +177,7 @@ Berikut adalah analisis jumlah nilai dari masing-masing fitur kategorikal:
 
 Secara umum, plot-plot pada gambar diatas dapat diinterpretasikan sebagai berikut:
 
-- **Parental_Involvement**: Sebagian besar siswa memiliki keterlibatan orang tua yang tinggi.
+- **Parental_Involvement**: Sebagian besar siswa memiliki keterlibatan orang tua di level medium.
 - **Access_to_Resources**: Sebagian besar siswa memiliki akses ke sumber daya pada level medium.
 - **Extracurricular_Activities**: Sebagian besar siswa terlibat dalam aktivitas ekstrakurikuler.
 - **Motivation_Level**: Sebagian besar siswa memiliki tingkat motivasi pada level medium.
