@@ -64,11 +64,13 @@ Berdasarkan problem statements, berikut tujuan yang ingin dicapai pada proyek in
 
     a. Linear Regression: Untuk memahami hubungan linier antar variabel.
    
-    b. Random Forest Regressor: Untuk menangani hubungan non-linear dan analisis feature importance.
-   
-    c. XGBoost: Untuk meningkatkan performa prediksi dengan teknik boosting.
+    b. Random Forest: Untuk meningkatkan akurasi model dengan menggabungkan banyak pohon keputusan dan mengurangi overfitting melalui pemilihan acak fitur dan sampel data.
+  
+    c. Gradient Boosting: Untuk meningkatkan model prediksi secara bertahap dengan menggabungkan model pembelajaran lemah (weak learners) dan memperbaiki kesalahan model sebelumnya.
    
     d. Support Vector Regression (SVR): Untuk memodelkan hubungan kompleks dengan margin optimal.
+
+    e. Decision Tree: Untuk membangun model prediksi yang mudah dipahami dengan membagi data berdasarkan keputusan logis pada setiap fitur, memungkinkan interpretasi yang jelas mengenai bagaimana prediksi dibuat.
    
 **3. Menggunakan metrik evaluasi seperti:**
 
