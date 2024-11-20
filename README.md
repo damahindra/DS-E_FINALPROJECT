@@ -149,36 +149,168 @@ df_cleaned.duplicated().sum()
 
 Dari hasil di atas, kolom **Teacher_Quality** terdapat 78 missing values, **Parental_Education_Level** terdapat 90 missing values dan **Distance_from_home** terdapat 67 missing values sehingga dibutuhkan proses _handling_ untuk menangani nilai-nilai _null_ tersebut. Tidak terdapat nilai duplikat dalam dataset yang digunakan.
 
-## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
+### Exploratory Data Analysis (EDA)
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+
+## Data Preparation
+### Encoding
+Encoding adalah proses mengubah nilai kategorikal dalam dataset menjadi nilai numerikal. Hal ini dicapai dengan membuat nilai-nilai unik dalam sebuah fitur menjadi fitur-fitur baru yang didalamnya (sebagai contoh) bernilai 1 untuk mewakili 'ya' dan 0 untuk mewakili 'tidak'. Terdapat 3 macam teknik encoding yang digunakan, yaitu Categorical Encoding, One Hot Encoding, dan Ordinal Encoding.
+
+Berikut adalah penjelasan singkat mengenai tiga teknik encoding yang digunakan:
+
+1. **Categorical Encoding**  
+   Categorical encoding adalah teknik untuk mengubah kategori dalam data menjadi angka. Teknik ini sering digunakan untuk data dengan kategori biner, seperti 'ya' dan 'tidak' menjadi nilai numerik, seperti 1 dan 0.
+
+2. **One Hot Encoding**  
+   One Hot Encoding adalah teknik yang mengubah setiap nilai kategori menjadi fitur biner terpisah. Setiap kategori diwakili oleh kolom baru dengan nilai 0 atau 1. Misalnya, untuk kategori "Merah", "Hijau", dan "Biru", kita akan membuat tiga kolom terpisah, dengan satu kolom yang bernilai 1 untuk kategori yang ada, sementara yang lainnya bernilai 0.
+
+3. **Ordinal Encoding**  
+   Ordinal Encoding digunakan untuk data kategorikal yang memiliki urutan tertentu. Setiap kategori diberikan nilai numerik yang mencerminkan urutan atau ranking. Misalnya, untuk kategori "Rendah", "Sedang", dan "Tinggi", kita bisa memberikan nilai 1, 2, dan 3, yang menunjukkan urutan dari yang terendah ke yang tertinggi.
+
+**Encoding Kategorikal dilakukan terhadap 3 variabel, yaitu :**
+```
+- Extracurricular_Activities : Apakah Siswa Berpartisipasi dalam kegiatan ekstrakurikuler
+- Internet_Access : Apakah Siswa Memiliki Akses ke Internet
+- Learning_Disabilities : Apakah Siswa Memiliki Gangguan Pembelajaran
+```
+Karena masing-masing dari empat variabel tersebut hanya memiliki kategori ya (iya) dan tidak (tidak).
+
+**One Hot Encoding diterapkan pada 2 variabel, yaitu :**
+```
+- School_Type : Jenis sekolah yang dihadiri siswa (Negeri, Swasta)
+- Gender : Jenis kelamin siswa (Laki-laki, Perempuan)
+```
+Karena kategori Gender tidak memiliki urutan tertentu (nominal).
+
+**Encoding Ordinal dilakukan terhadap 8 variabel, yaitu :**
+```
+- Parental_Involvement : Tingkat keterlibatan orang tua dalam pendidikan siswa (Rendah, Sedang, Tinggi)
+- Access_to_Resources : Ketersediaan akses ke sumber daya pendidikan (Rendah, Sedang, Tinggi)
+- Motivation_Level : Tingkat motivasi siswa (Rendah, Sedang, Tinggi)
+- Family_Income : Tingkat pendapatan keluarga (Rendah, Sedang, Tinggi)
+- Teacher_Quality : Kualitas pengajaran (Rendah, Sedang, Tinggi)
+- Peer_Influence : Pengaruh teman sebaya terhadap kinerja akademik (Positif, Netral, Negatif)
+- Parental_Education_Level : Tingkat pendidikan tertinggi orang tua (Sekolah Menengah, Perguruan Tinggi, Pascasarjana)
+- Distance_from_Home : Jarak dari rumah ke sekolah (Dekat, Sedang, Jauh)
+```
+Karena ada urutan dan makna yang jelas, data diatas termasuk dalam kategori ordinal.
+
+### Data Splitting
+Split data dilakukan untuk membagi dataset menjadi bagian pelatihan dan pengujian. Ini penting untuk mengevaluasi kinerja model pada data yang tidak terlihat, mencegah overfitting, dan memastikan model dapat generalisasi dengan baik. Pembagian data menjadi data training dan data testing dilakukan dengan rasio sebagai berikut:
+
+- Data training sebesar 80% untuk melatih model
+- Data testing sebesar 20% untuk menguji model
 
 ## Modeling
-Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
+Seluruh model yang akan dibuat tidak menggunakan hyperparameter tuning melainkan akan menggunakan beberapa algoritma dan memilih model terbaik sebagai solusi. Sesuai solusi yang ditawarkan pada bagian **_Solution Statement_**, beberapa algoritma yang akan digunakan untuk masalah regresi pada proyek ini adalah _Linear Regression_, _Decision Tree_, _Random Forest_, _Gradient Boosting_, dan _Support Vector regression_. Berikut adalah analisis kelebihan dan kekurangan dari masing-masing algoritma yang digunakan dalam proyek ini:
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
-- Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
-- Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
+| **Model**               | **Kelebihan**                                                                                                                                       | **Kekurangan**                                                                                                  |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| **Linear Regression (LR)** | - Sederhana dan mudah dipahami. <br> - Cepat dalam pelatihan dan prediksi. <br> - Memiliki interpretasi yang jelas (koefisien menunjukkan pengaruh variabel). | - Hanya dapat menangkap hubungan linear. <br> - Sensitif terhadap outlier. <br> - Mengasumsikan hubungan linear. |
+| **Decision Tree (DT)**    | - Mudah diinterpretasikan dan divisualisasikan. <br> - Mampu menangkap hubungan non-linear. <br> - Tidak memerlukan scaling data.                     | - Rentan terhadap overfitting, terutama dengan data yang kompleks. <br> - Sensitif terhadap perubahan kecil.    |
+| **Random Forest (RF)**   | - Lebih robust dibandingkan Decision Tree, mengurangi risiko overfitting. <br> - Mampu menangkap interaksi yang kompleks antar fitur. <br> - Memberikan estimasi pentingnya fitur. | - Lebih lambat dalam pelatihan dan prediksi. <br> - Kurang interpretatif dibandingkan model linear. <br> - Memerlukan lebih banyak memori. |
+| **Gradient Boosting (GB)**| - Mampu menangkap hubungan non-linear yang kompleks. <br> - Umumnya memberikan performa yang sangat baik dalam banyak kasus. <br> - Mampu mengatasi missing values. | - Rentan terhadap overfitting jika tidak dituning dengan baik. <br> - Lebih lambat dalam pelatihan. <br> - Memerlukan pemahaman yang lebih dalam tentang hyperparameter. |
+| **Support Vector Regression (SVR)** | - Mampu menangkap hubungan non-linear dengan kernel yang tepat. <br> - Robust terhadap overfitting, terutama di dimensi tinggi. <br> - Efektif pada dataset kecil hingga menengah. | - Tidak efisien pada dataset yang sangat besar. <br> - Memerlukan pemilihan kernel yang tepat dan tuning hyperparameter. <br> - Sulit dalam interpretasi model. |
+
+Berikut adalah sintaks kode Python untuk instansiasi algoritma-algoritma yanng digunakan, pelatihan model, dan prediksi nilai oleh model:
+
+**Linear Regression**
+```
+# Membuat dan melatih model regresi linier
+model_lr = LinearRegression()
+model_lr.fit(X_train, y_train)
+
+# Prediksi
+predictions_lr = model_lr.predict(X_test)
+```
+
+**Decision Tree**
+```
+# Membuat dan melatih model decision tree
+model_dt = DecisionTreeRegressor(max_depth=10)
+model_dt.fit(X_train, y_train)
+
+# Prediksi dan evaluasi
+predictions_dt = model_dt.predict(X_test)
+```
+
+**Random Forest**
+```
+# Membuat dan melatih model random forest
+model_rf = RandomForestRegressor(n_estimators=100, random_state=30)
+model_rf.fit(X_train, y_train)
+
+# Prediksi
+predictions_rf = model_rf.predict(X_test)
+```
+
+**Gradient Boosting**
+```
+# Membuat dan melatih model gradient boosting
+model_gb = GradientBoostingRegressor(n_estimators=100, learning_rate=0.1, max_depth=3)
+model_gb.fit(X_train, y_train)
+
+# Prediksi dan evaluasi
+predictions_gb = model_gb.predict(X_test)
+```
+
+**Support Vector Regression (SVR)**
+```
+# Membuat dan melatih model support vector regression
+model_svr = SVR(kernel='rbf')
+model_svr.fit(X_train, y_train)
+
+# Prediksi dan evaluasi
+predictions_svr = model_svr.predict(X_test)
+```
 
 ## Evaluation
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
+### Metrik Evaluasi
+Berikut adalah metrik evaluasi yang digunakan:
 
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
+1. **Mean Squared Error (MSE)**  
+   Formula:
+   
+   MSE = $\frac{1}{n} \sum_{i=1}^{n} (y_{\text{true},i} - y_{\text{pred},i})^2$
+   
+   Dimana:  
+   - $\( y_{\text{true},i} \)$ adalah nilai sebenarnya untuk data ke-\(i\).  
+   - $\( y_{\text{pred},i} \)$ adalah nilai prediksi untuk data ke-\(i\).  
+   - $\( n \)$ adalah jumlah data.  
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+3. **Mean Absolute Error (MAE)**  
+   Formula:
+   
+   MAE = $\frac{1}{n} \sum_{i=1}^{n} \lvert y_{\text{true},i} - y_{\text{pred},i} \rvert$
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+   Dimana:  
+   - $\( y_{\text{true},i} \)$ adalah nilai sebenarnya untuk data ke-\(i\).  
+   - $\( y_{\text{pred},i} \)$ adalah nilai prediksi untuk data ke-\(i\).  
+   - $\( n \)$ adalah jumlah data.  
 
-**---Ini adalah bagian akhir laporan---**
+### Evaluasi Model
+Berikut adalah hasil metrik yang didapatkan dari masing-masing proses evaluasi algoritma:
 
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+| Model | Mean Squared Error (MSE) | Mean Absolute Error (MAE) |
+|-------|--------------------------|---------------------------|
+| LR    | 3.508515                 | 0.454501                  |
+| DT    | 13.946788                | 1.773880                  |
+| RF    | 5.225100                 | 1.142210                  |
+| GB    | 4.387732                 | 0.832583                  |
+| SVR   | 5.093583                 | 1.139980                  |
 
+Lebih jelasnya, hasil evaluasi model-model yang digunakan digambarkan pada grafik berikut:
+
+![image](https://github.com/user-attachments/assets/e1fbe47c-94a6-4beb-8858-347cdcec3672)
+
+- Berdasarkan grafik "Perbandingan Performa Model", model Linear Regression (LR) memiliki nilai Mean Squared Error (MSE) terendah, yaitu 3.51, serta nilai Mean Absolute Error (MAE) yang juga cukup rendah. Ini menunjukkan bahwa model Linear Regression memiliki akurasi prediksi terbaik di antara model-model yang dibandingkan.
+
+- Model Gradient Boosting (GB) juga menunjukkan performa yang sangat baik, dengan nilai MSE 4.39 dan MAE yang relatif rendah. Meskipun sedikit lebih tinggi dibandingkan Linear Regression, Gradient Boosting masih merupakan salah satu model terbaik dalam kasus ini.
+
+- Sementara itu, model Random Forest (RF) memiliki nilai MSE 5.23 dan MAE yang sedikit lebih tinggi. Support Vector Regression (SVR) memiliki nilai MSE 5.09 dan MAE yang juga lebih tinggi daripada Linear Regression dan Gradient Boosting. Meskipun masih menunjukkan performa yang cukup baik, model-model ini tidak unggul dibandingkan Linear Regression dan Gradient Boosting.
+
+- Model Decision Tree (DT) memiliki nilai MSE paling tinggi, yaitu 12.82, serta nilai MAE yang juga lebih buruk daripada model-model lainnya. Ini menunjukkan bahwa model Decision Tree memiliki performa paling rendah di antara model-model yang dibandingkan.
+
+**Secara keseluruhan, dapat disimpulkan bahwa model Linear Regression merupakan model terbaik berdasarkan nilai MSE dan MAE yang paling rendah.**
+
+## Conclusion
