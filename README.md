@@ -31,15 +31,15 @@ Proyek ini bertujuan untuk mengatasi beberapa masalah yang diidentifikasi terkai
 
 1. Bagaimana memahami hubungan antara faktor-faktor seperti jam belajar, tingkat kehadiran, motivasi, dan faktor-faktor relevan lainnya terhadap nilai ujian siswa?
 
-**Alasan**: *Variasi faktor ini sering tidak diperhatikan dalam pendekatan konvensional, sehingga strategi pendidikan menjadi kurang optimal.*
+> **Alasan**: *Variasi faktor ini sering tidak diperhatikan dalam pendekatan konvensional, sehingga strategi pendidikan menjadi kurang optimal.*
 
 2. Bagaimana membangun model prediksi nilai ujian yang dapat membantu pihak sekolah dan orang tua untuk mengidentifikasi potensi kelemahan akademik siswa lebih awal?
 
-**Alasan**: *Intervensi yang lebih awal dan terarah dapat meningkatkan hasil akademik siswa secara signifikan.*
+> **Alasan**: *Intervensi yang lebih awal dan terarah dapat meningkatkan hasil akademik siswa secara signifikan.*
 
 3. Faktor mana yang memiliki dampak terbesar terhadap nilai ujian, sehingga dapat menjadi fokus dalam pengambilan keputusan pendidikan?
 
-**Alasan**: *Memahami prioritas ini penting untuk efisiensi alokasi sumber daya seperti bimbingan belajar atau tambahan jam pelajaran.*
+> **Alasan**: *Memahami prioritas ini penting untuk efisiensi alokasi sumber daya seperti bimbingan belajar atau tambahan jam pelajaran.*
 
 
 ### Goals
@@ -80,17 +80,34 @@ Berdasarkan problem statements, berikut tujuan yang ingin dicapai pada proyek in
 
 
 ## Data Understanding
-Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
 
-Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
+Sumber: [Student Performance Factors](https://www.kaggle.com/datasets/lainguyn123/student-performance-factors/data), Kaggle
 
-### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+Dataset yang digunakan memuat dimensi sebesar **6,607 baris** dan **20 kolom**. Untuk kolom yang terdapat pada dataset dijabarkan sebagai berikut:
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data atau exploratory data analysis.
+| No. | Nama Fitur               | Penjelasan Fitur                                                                                       | Tipe Data |
+|-----|--------------------------|--------------------------------------------------------------------------------------------------------|-----------|
+| 1   | Hours_Studied            | Jumlah jam yang dihabiskan untuk belajar per minggu.                                                   | int64     |
+| 2   | Attendance               | Persentase kehadiran siswa di kelas.                                                                   | int64     |
+| 3   | Parental_Involvement     | Tingkat keterlibatan orang tua dalam pendidikan siswa (Low, Medium, High).                             | object    |
+| 4   | Access_to_Resources      | Ketersediaan sumber daya pendidikan (Low, Medium, High).                                               | object    |
+| 5   | Extracurricular_Activities | Partisipasi dalam kegiatan ekstrakurikuler (Yes, No).                                                 | object    |
+| 6   | Sleep_Hours              | Rata-rata jumlah jam tidur per malam.                                                                  | int64     |
+| 7   | Previous_Scores          | Nilai dari ujian sebelumnya.                                                                           | int64     |
+| 8   | Motivation_Level         | Tingkat motivasi siswa (Low, Medium, High).                                                            | object    |
+| 9   | Internet_Access          | Ketersediaan akses internet (Yes, No).                                                                 | object    |
+| 10  | Tutoring_Sessions        | Jumlah sesi bimbingan belajar yang dihadiri per bulan.                                                 | int64     |
+| 11  | Family_Income            | Tingkat pendapatan keluarga (Low, Medium, High).                                                       | object    |
+| 12  | Teacher_Quality          | Kualitas guru (Low, Medium, High).                                                                     | object    |
+| 13  | School_Type              | Jenis sekolah yang dihadiri (Public, Private).                                                         | object    |
+| 14  | Peer_Influence           | Pengaruh teman sebaya terhadap kinerja akademik (Positive, Neutral, Negative).                         | object    |
+| 15  | Physical_Activity        | Rata-rata jumlah jam aktivitas fisik per minggu.                                                       | int64     |
+| 16  | Learning_Disabilities    | Keberadaan gangguan belajar (Yes, No).                                                                 | object    |
+| 17  | Parental_Education_Level | Tingkat pendidikan tertinggi orang tua (High School, College, Postgraduate).                           | object    |
+| 18  | Distance_from_Home       | Jarak dari rumah ke sekolah (Near, Moderate, Far).                                                     | object    |
+| 19  | Gender                   | Jenis kelamin siswa (Male, Female).                                                                    | object    |
+| 20  | Exam_Score               | Nilai akhir ujian siswa.                                                                               | int64     |
+
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
