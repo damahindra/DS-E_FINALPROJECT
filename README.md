@@ -74,11 +74,9 @@ Berdasarkan problem statements, berikut tujuan yang ingin dicapai pada proyek in
    
 **3. Menggunakan metrik evaluasi seperti:**
 
-    a. Mean Absolute Error (MAE) dan Root Mean Squared Error (RMSE) untuk mengukur seberapa jauh prediksi model dari nilai aktual.
+    a. Mean Squared Error (MSE) dan Mean Absolute Error (MAE) untuk mengukur seberapa jauh prediksi model dari nilai aktual. MSE memberikan penalti lebih besar terhadap kesalahan besar (karena menggunakan kuadrat dariselisih), sementara MAE mengukur rata-rata kesalahan absolut, yang lebih robust terhadap outlier.
    
-    b. R²-score untuk mengukur kemampuan model dalam menjelaskan variabilitas nilai ujian siswa.
-   
-    c. Memilih model terbaik berdasarkan nilai metrik evaluasi dengan performa tertinggi untuk memprediksi nilai ujian secara akurat dan efisien.
+    b. Memilih model terbaik berdasarkan nilai metrik evaluasi dengan performa tertinggi untuk memprediksi nilai ujian secara akurat dan efisien.
 
 
 ## Data Understanding
