@@ -25,32 +25,59 @@ Studi ini bertujuan untuk memahami faktor-faktor yang memengaruhi kinerja mahasi
 
 ## Business Understanding
 
-Pada bagian ini, kamu perlu menjelaskan proses klarifikasi masalah.
-
-Bagian laporan ini mencakup:
-
 ### Problem Statements
 
-Menjelaskan pernyataan masalah latar belakang:
-- Pernyataan Masalah 1
-- Pernyataan Masalah 2
-- Pernyataan Masalah n
+Proyek ini bertujuan untuk mengatasi beberapa masalah yang diidentifikasi terkait prediksi nilai ujian siswa berdasarkan berbagai faktor yang mempengaruhi kinerja akademik mereka. Pernyataan masalah diuraikan sebagai berikut:
+
+1. Bagaimana memahami hubungan antara faktor-faktor seperti jam belajar, tingkat kehadiran, motivasi, dan faktor-faktor relevan lainnya terhadap nilai ujian siswa?
+
+**Alasan**: *Variasi faktor ini sering tidak diperhatikan dalam pendekatan konvensional, sehingga strategi pendidikan menjadi kurang optimal.*
+
+2. Bagaimana membangun model prediksi nilai ujian yang dapat membantu pihak sekolah dan orang tua untuk mengidentifikasi potensi kelemahan akademik siswa lebih awal?
+
+**Alasan**: *Intervensi yang lebih awal dan terarah dapat meningkatkan hasil akademik siswa secara signifikan.*
+
+3. Faktor mana yang memiliki dampak terbesar terhadap nilai ujian, sehingga dapat menjadi fokus dalam pengambilan keputusan pendidikan?
+
+**Alasan**: *Memahami prioritas ini penting untuk efisiensi alokasi sumber daya seperti bimbingan belajar atau tambahan jam pelajaran.*
+
 
 ### Goals
 
-Menjelaskan tujuan dari pernyataan masalah:
-- Jawaban pernyataan masalah 1
-- Jawaban pernyataan masalah 2
-- Jawaban pernyataan masalah n
+Berdasarkan problem statements, berikut tujuan yang ingin dicapai pada proyek ini:
 
-Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pernyataan masalah dan juga goals yang diinginkan.
+1. Mengetahui hubungan antara faktor-faktor seperti jam belajar, tingkat kehadiran, dukungan orang tua, dan motivasi terhadap nilai ujian siswa.
+2. Mengidentifikasi faktor utama yang memiliki dampak terbesar terhadap nilai ujian siswa.
+3. Menemukan model terbaik dengan akurasi tertinggi untuk memprediksi nilai ujian siswa berdasarkan faktor-faktor yang telah ditentukan.
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Menambahkan bagian “Solution Statement” yang menguraikan cara untuk meraih goals. Bagian ini dibuat dengan ketentuan sebagai berikut: 
+### Solution statements
 
-    ### Solution statements
-    - Mengajukan 2 atau lebih solution statement. Misalnya, menggunakan dua atau lebih algoritma untuk mencapai solusi yang diinginkan atau melakukan improvement pada baseline model dengan hyperparameter tuning.
-    - Solusi yang diberikan harus dapat terukur dengan metrik evaluasi.
+**1. Melakukan proses Exploratory Data Analysis (EDA) untuk:**
+
+    a. Mengetahui hubungan antara jam belajar, kehadiran, motivasi, dan faktor lainnya dengan nilai ujian siswa.
+   
+    b. Mengidentifikasi pola atau tren dalam data yang relevan dengan nilai ujian siswa.
+   
+    c. Menentukan faktor utama yang memiliki dampak terbesar terhadap kinerja akademik siswa.
+   
+**2. Menggunakan 4 model machine learning untuk memprediksi nilai ujian siswa:**
+
+    a. Linear Regression: Untuk memahami hubungan linier antar variabel.
+   
+    b. Random Forest Regressor: Untuk menangani hubungan non-linear dan analisis feature importance.
+   
+    c. XGBoost: Untuk meningkatkan performa prediksi dengan teknik boosting.
+   
+    d. Support Vector Regression (SVR): Untuk memodelkan hubungan kompleks dengan margin optimal.
+   
+**3. Menggunakan metrik evaluasi seperti:**
+
+    a. Mean Absolute Error (MAE) dan Root Mean Squared Error (RMSE) untuk mengukur seberapa jauh prediksi model dari nilai aktual.
+   
+    b. R²-score untuk mengukur kemampuan model dalam menjelaskan variabilitas nilai ujian siswa.
+   
+    c. Memilih model terbaik berdasarkan nilai metrik evaluasi dengan performa tertinggi untuk memprediksi nilai ujian secara akurat dan efisien.
+
 
 ## Data Understanding
 Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
