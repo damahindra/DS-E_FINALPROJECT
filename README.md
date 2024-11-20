@@ -167,6 +167,25 @@ Dengan demikian, persentase jumlah nilai _null_ pada dataset adalah 235/132,140 
 df_cleaned = data.dropna()
 ```
 
+### Outlier Detection
+
+![image](https://github.com/user-attachments/assets/33c547e1-3af9-4f4e-969b-66780eead2dd)
+
+Berikut adalah interpretasi dari boxplot yang ditampilkan di atas:
+
+- Pada kolom Hours_Studied, terlihat beberapa outlier di sisi kiri (sekitar 0-5 jam) dan di sisi kanan (sekitar 35-45 jam). Meski demikian, 0-5 jam per minggu Ini mungkin terjadi, terutama jika seorang siswa tidak terlalu fokus pada studi, memiliki komitmen lain. 35-45 jam per minggu juga mungkin, terutama untuk siswa yang sangat berdedikasi. Outlier ini tidak akan dihapus karena memberikan gambaran lengkap tentang bagaimana siswa berbeda dalam waktu belajar.
+
+- Pada kolom Tutoring_Sessions, dapat dilihat bahwa nilai 4 hingga 8 sesi per bulan, dianggap sebagai outliers secara statistik. Namun nilai-nilai ini sangat memungkinkan karena ada siswa yang mungkin merasa perlu belajar lebih banyak sehingga outlier tidak akan dihapus.
+
+- Pada kolom Exam_Score, dapat dilihat bahwa mayoritas exam_score di rentang 65-70. Terdapat beberapa outlier, yaitu exam_score 75 ke atas. Namun terdapat outlier yaitu Exam_Score yang bernilai 101 yang mana tidak mungkin pada konteks ujian. Outlier lainnya akan dipertahankan karena sangat memungkinkan jika siswa mendapatkan nilai 75 keatas dan tidak melebihi 100.
+
+- Pada kolom-kolom lainnya, dapat dilihat bahwa persebaran data merata dan tidak terdapat outlier yang signifikan. Secara keseluruhan, data ini siap untuk diproses dan dianalisis lebih mendalam tanpa perlu melakukan penghapusan outlier.
+
+Berikut adalah sintaks kode Python untuk menghapus baris yang memiliki Exam_Score lebih dari 100:
+```
+df_cleaned.drop(df_cleaned[df_cleaned["Exam_Score"] > 100].index, inplace=True)
+```
+
 ### Exploratory Data Analysis (EDA)
 
 **Univariate Analysis**
