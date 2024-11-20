@@ -149,8 +149,110 @@ df_cleaned.duplicated().sum()
 
 Dari hasil di atas, kolom **Teacher_Quality** terdapat 78 missing values, **Parental_Education_Level** terdapat 90 missing values dan **Distance_from_home** terdapat 67 missing values sehingga dibutuhkan proses _handling_ untuk menangani nilai-nilai _null_ tersebut. Tidak terdapat nilai duplikat dalam dataset yang digunakan.
 
+### Null Value Handling
+
+Berikut adalah fitur-fitur yang memiliki nilai _null_:
+- **Teacher_Quality**: 78
+- **Parental_Education_Level**: 90
+- **Distance_from_home**: 67
+
+Total nilai _null_ pada dataset adalah 78 + 90 + 67 = **235**
+
+Dengan dimensi dataset 6,607 baris dan 20 kolom menjadikan total data pada dataset adalah 6,607 * 20 = **132,140**
+
+Dengan demikian, persentase jumlah nilai _null_ pada dataset adalah 235/132,140 * 100 = **0.18%**, di mana persentase tersebut sangat kecil sehingga untuk _handling_ nilai _null_ pada dataset, baris yang memuat nilai-nilai _null_ tersebut cukup dihapuskan karena tidak akan mempengaruhi informasi yang dimuat oleh keseluruhan data. Untuk menghapus nilai _null_ menggunakan sintaks:
+
+```
+# Menghapus baris yang memiliki missing values
+df_cleaned = data.dropna()
+```
+
 ### Exploratory Data Analysis (EDA)
 
+**Univariate Analysis**
+
+Berikut adalah analisis jumlah nilai dari masing-masing fitur kategorikal:
+
+![image](https://github.com/user-attachments/assets/92f50b2e-ef9f-4bd0-ba25-3b5651ea1909)
+
+Secara umum, plot-plot pada gambar diatas dapat diinterpretasikan sebagai berikut:
+
+- **Parental_Involvement**: Sebagian besar siswa memiliki keterlibatan orang tua yang tinggi.
+- **Access_to_Resources**: Sebagian besar siswa memiliki akses ke sumber daya pada level medium.
+- **Extracurricular_Activities**: Sebagian besar siswa terlibat dalam aktivitas ekstrakurikuler.
+- **Motivation_Level**: Sebagian besar siswa memiliki tingkat motivasi pada level medium.
+- **Internet_Access**: Sebagian besar siswa memiliki akses internet.
+- **Family_Income**: Sebaran data pendapatan keluarga siswa cukup merata antara level medium dan low.
+- **Teacher_Quality**: Sebagian besar siswa memiliki kualitas guru di level medium.
+- **School_Type**: Sebagian besar siswa berasal dari sekolah negeri (public).
+- **Peer_Influence**: Sebaran data pengaruh teman sebaya cukup merata di level neutral dan positive.
+- **Learning_Disabilites**: Sebagian besar siswa tidak memiliki disabilitas belajar.
+- **Parental_Education_Level**: Sebagian besar siswa memiliki orang tua dengan tingkat pendidikan setara sekolah menengah atas.
+- **Distance_from_Home**: Sebagian besar siswa memiliki jarak tempat tinggal yang dekat dari sekolah.
+- **Gender**: Sebagian besar siswa adalah laki-laki.
+
+Berikut adalah analisis distribusi nilai dari masing-masing fitur numerikal:
+
+![image](https://github.com/user-attachments/assets/25bc4205-44df-4a88-9cf2-fc8d191b2110)
+
+Berdasarkan hasil plot histogram yang disajikan, dapat diinterpretasikan sebagai berikut:
+
+- **Hours_Studied**: Distribusi data membentuk kurva normal dengan puncak di sekitar 20-25 jam. Mayoritas mahasiswa belajar sekitar 20-30 jam. Terdapat beberapa mahasiswa dengan jam belajar yang lebih ekstrim, baik sangat sedikit maupun sangat banyak.
+- **Attendance**: Distribusi data menunjukkan pola bimodal, dengan dua puncak di sekitar 70-80% dan 90-100%. Mayoritas mahasiswa memiliki kehadiran di atas 80%. Terdapat beberapa mahasiswa dengan kehadiran yang rendah.
+- **Sleep_Hours**: Distribusi data menunjukkan pola normal dengan puncak di sekitar 6-8 jam tidur. Mayoritas mahasiswa tidur sekitar 6-8 jam per hari. Terdapat beberapa mahasiswa dengan jam tidur yang ekstrim, baik sedikit maupun banyak.
+- **Previous_Scores**: Distribusi data cenderung simetris dengan puncak di sekitar 70-80. Mayoritas mahasiswa memiliki skor sebelumnya di rentang 70-80. Terdapat beberapa mahasiswa dengan skor yang sangat rendah maupun sangat tinggi.
+- **Tutoring_Sessions**: Distribusi data menunjukkan pola bimodal dengan dua puncak di sekitar 1 dan 6 sesi. Mayoritas mahasiswa mengikuti 1-2 sesi tutorial atau 5-6 sesi tutorial. Terdapat beberapa mahasiswa dengan jumlah sesi tutorial yang sangat sedikit maupun sangat banyak.
+- **Physical_Activity**: Distribusi data menunjukkan pola bimodal dengan dua puncak yang jelas. Mayoritas mahasiswa memiliki aktivitas fisik yang rendah atau sangat tinggi. Terdapat sedikit mahasiswa dengan aktivitas fisik yang moderat.
+- **Exam_Score**: Distribusi data cenderung normal dengan puncak di sekitar 70-80. Mayoritas mahasiswa memperoleh skor ujian di rentang 70-80. Terdapat beberapa mahasiswa dengan skor ujian yang sangat rendah maupun sangat tinggi.
+
+**Multivariate Analysis**
+
+![image](https://github.com/user-attachments/assets/8db8b289-7e22-4aef-9799-eaabba62ea75)
+
+| Feature                      | Category          | Average Exam Score |
+|------------------------------|-------------------|---------------------|
+| Parental Involvement         | High              | 68.112200          |
+|                              | Low               | 66.351938          |
+|                              | Medium            | 67.113196          |
+| Access to Resources          | High              | 68.103158          |
+|                              | Low               | 66.223705          |
+|                              | Medium            | 67.145801          |
+| Extracurricular Activities   | No                | 66.951770          |
+|                              | Yes               | 67.446138          |
+| Motivation Level             | High              | 67.743931          |
+|                              | Low               | 66.746108          |
+|                              | Medium            | 67.338894          |
+| Internet Access              | No                | 66.483471          |
+|                              | Yes               | 67.309520          |
+| Family Income                | High              | 67.814483          |
+|                              | Low               | 66.853215          |
+|                              | Medium            | 67.371005          |
+| Teacher Quality              | High              | 67.664391          |
+|                              | Low               | 66.775889          |
+|                              | Medium            | 67.118662          |
+| School Type                  | Private           | 67.316358          |
+|                              | Public            | 67.216332          |
+| Peer Influence               | Negative          | 66.582707          |
+|                              | Neutral           | 67.215631          |
+|                              | Positive          | 67.623433          |
+| Learning Disabilities        | No                | 67.358557          |
+|                              | Yes               | 66.291916          |
+| Parental Education Level     | College           | 67.358432          |
+|                              | High School       | 66.884104          |
+|                              | Postgraduate      | 67.972656          |
+| Distance from Home           | Far               | 66.498428          |
+|                              | Moderate          | 66.969072          |
+|                              | Near              | 67.513812          |
+| Gender                       | Female            | 67.262179          |
+|                              | Male              | 67.235629          |
+
+Hasil analisis di atas dapat diinterpretasikan sebagai berikut:
+
+- Learning_Disabilities: Mahasiswa tanpa learning disabilities memiliki rata-rata skor ujian yang lebih tinggi (67.36) dibandingkan dengan yang memiliki learning disabilities (66.29).
+- Parental_Involvement: Mahasiswa dengan keterlibatan orang tua yang tinggi memiliki rata-rata skor ujian yang lebih tinggi (68.11) dibandingkan dengan yang rendah (66.35) atau sedang (67.11).
+- Access_to_Resources: Mahasiswa dengan akses sumber daya yang tinggi memiliki rata-rata skor ujian yang lebih tinggi (68.10) dibandingkan dengan yang rendah (66.22) atau sedang (67.15).
+- Extracurricular_Activities: Mahasiswa yang terlibat dalam kegiatan ekstrakurikuler memiliki rata-rata skor ujian yang lebih tinggi (67.45) dibandingkan dengan yang tidak terlibat (66.95).
+- Motivation_Level: Mahasiswa dengan motivasi tinggi memiliki rata-rata skor ujian yang lebih tinggi (67.74) dibandingkan dengan yang rendah (66.75) atau sedang (67.34). Variabel lainnya juga menunjukkan perbedaan rata-rata skor ujian, meskipun mungkin tidak terlalu signifikan.
 
 ## Data Preparation
 ### Encoding
@@ -263,6 +365,24 @@ model_svr.fit(X_train, y_train)
 # Prediksi dan evaluasi
 predictions_svr = model_svr.predict(X_test)
 ```
+
+### Contoh 10 Data Prediksi
+Berikut adalah 10 contoh perbandingan nilai asli dan hasil prediksi model yang digunakan:
+
+| **Index** | **y_true** | **prediksi_LR** | **prediksi_DT** | **prediksi_RF** | **prediksi_GB** | **prediksi_SVR** |
+|-----------|------------|-----------------|-----------------|-----------------|-----------------|------------------|
+| 3024      | 62         | 62.123519       | 61.625000       | 63.71           | 63.707048       | 63.343930        |
+| 2754      | 65         | 65.053911       | 64.888889       | 64.17           | 65.266467       | 63.599576        |
+| 6363      | 70         | 69.709080       | 67.287500       | 68.32           | 68.856883       | 68.401405        |
+| 3753      | 63         | 63.315235       | 62.645161       | 63.10           | 62.564249       | 63.268075        |
+| 5154      | 62         | 61.858399       | 61.285714       | 61.59           | 61.404107       | 62.536896        |
+| 2339      | 66         | 65.883455       | 66.500000       | 66.75           | 66.371123       | 66.859308        |
+| 3500      | 68         | 67.799348       | 68.000000       | 69.08           | 68.613654       | 68.869134        |
+| 1563      | 66         | 66.603065       | 65.000000       | 68.31           | 67.139535       | 65.750518        |
+| 4493      | 65         | 64.944518       | 65.650000       | 65.15           | 65.212079       | 65.453077        |
+| 1001      | 72         | 72.611754       | 71.500000       | 72.90           | 72.266877       | 72.486120        |
+
+Berdasarkan tabel di atas, kita dapat melihat bahwa model Linear Regression (LR) memiliki prediksi yang paling mendekati nilai aktual (y_true) di antara model-model yang dibandingkan.
 
 ## Evaluation
 ### Metrik Evaluasi
