@@ -453,7 +453,7 @@ Lebih jelasnya, hasil evaluasi model-model yang digunakan digambarkan pada grafi
 **Secara keseluruhan, dapat disimpulkan bahwa model Linear Regression merupakan model terbaik berdasarkan nilai MSE dan MAE yang paling rendah.**
 
 ### Feature Importance
-Analisis fitur terpenting dilakukan menggunakan framework SHAP (SHapley Additive exPlanations) untuk melihat pengaruh fitur-fitur dalam dataset terhadap prediksi model. Berikut adalah hasil analisis fitur terpenting menggunakan SHAP:
+Analisis fitur terpenting dilakukan menggunakan framework SHAP (SHapley Additive exPlanations) untuk melihat pengaruh fitur-fitur dalam dataset terhadap prediksi model. Berikut adalah hasil analisis fitur terpenting terhadap model Linear Regression sebagai model dengan performa terbaik menggunakan SHAP:
 
 ![image](https://github.com/user-attachments/assets/97dc0631-74e8-4cb4-9219-f54da3da3c3d)
 
