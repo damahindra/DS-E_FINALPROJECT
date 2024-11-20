@@ -460,6 +460,9 @@ Faktor-faktor seperti **jumlah jam belajar**, **tingkat motivasi**, **kehadiran*
 
 ### Faktor Utama yang Mempengaruhi Nilai Ujian  
 Berdasarkan analisis feature importance dan korelasi, **motivasi siswa**, **jam belajar**, dan **kualitas pengajaran** menjadi faktor yang memiliki pengaruh terbesar terhadap nilai ujian.
+- **Motivasi siswa**: Berdasarkan tabel rata-rata skor ujian, siswa dengan motivasi tinggi memiliki rata-rata skor ujian tertinggi (67.74), dibandingkan dengan yang memiliki motivasi sedang atau rendah​.
+- **Jam belajar**: Distribusi data menunjukkan bahwa siswa yang belajar lebih banyak jam cenderung memiliki nilai ujian yang lebih baik, yang mencerminkan hubungan positif antara jam belajar dan skor.
+- **Kualitas pengajaran**: Siswa dengan kualitas pengajaran tinggi menunjukkan rata-rata skor ujian yang lebih baik (67.66), dibandingkan dengan yang menerima pengajaran berkualitas sedang atau rendah​.
 
 ### Model Prediksi Terbaik  
 Dari berbagai model yang diuji (**Linear Regression**, **Decision Tree**, **Random Forest**, **Gradient Boosting**, dan **Support Vector Regression**), **Linear Regression** menunjukkan performa terbaik dengan nilai **MSE terendah (3.51)** dan **MAE terendah (0.45)**. Hal ini mengindikasikan bahwa model ini memiliki kemampuan prediksi yang paling akurat dalam kasus ini.
