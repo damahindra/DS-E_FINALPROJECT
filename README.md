@@ -452,28 +452,40 @@ Lebih jelasnya, hasil evaluasi model-model yang digunakan digambarkan pada grafi
 
 **Secara keseluruhan, dapat disimpulkan bahwa model Linear Regression merupakan model terbaik berdasarkan nilai MSE dan MAE yang paling rendah.**
 
+### Feature Importance
+Analisis fitur terpenting dilakukan menggunakan framework SHAP (SHapley Additive exPlanations) untuk melihat pengaruh fitur-fitur dalam dataset terhadap prediksi model. Berikut adalah hasil analisis fitur terpenting menggunakan SHAP:
+
+![image](https://github.com/user-attachments/assets/97dc0631-74e8-4cb4-9219-f54da3da3c3d)
+
+Dari hasil visualisasi di atas, didapatkan bahwa:
+- **Attendance** dan **Hours_Studied** memiliki dampak terbesar pada prediksi model. Kehadiran yang tinggi dan jam belajar yang banyak berhubungan dengan nilai prediksi yang lebih tinggi.
+- **Access_to_Resources**, **Parental_Involvement**, dan **Previous_Scores** juga memberikan pengaruh signifikan, meskipun lebih kecil dibandingkan dengan **Attendance** dan **Hours_Studied**.
+- **Gender_Male**, **School_Type_Public**, dan **Sleep_Hours** memiliki dampak kecil pada model, dengan nilai SHAP yang lebih terpusat di sekitar 0.
+- Pada fitur **Parental_Education_Level**, tingkat pendidikan orang tua yang lebih tinggi meningkatkan prediksi model, sementara tingkat pendidikan yang lebih rendah menurunkan prediksi.
+
 ## Conclusion
 Proyek ini bertujuan untuk memahami faktor-faktor yang memengaruhi kinerja akademik siswa, menentukan faktor utama, serta membangun model prediksi nilai ujian. Berdasarkan analisis data dan eksperimen model, berikut adalah poin-poin utama kesimpulan yang dapat menjawab problem statement dan mencapai goals proyek ini:
-
-### Hubungan Faktor dengan Nilai Ujian  
-Faktor-faktor seperti **jumlah jam belajar**, **tingkat motivasi**, **kehadiran**, **keterlibatan orang tua**, **kualitas guru**, dan **akses sumber daya pendidikan** memiliki hubungan signifikan dengan nilai ujian. Faktor lain seperti **aktivitas ekstrakurikuler** dan **jam tidur** juga berkontribusi terhadap hasil akademik siswa.
-
-### Faktor Utama yang Mempengaruhi Nilai Ujian  
-Berdasarkan analisis feature importance dan korelasi, **motivasi siswa**, **jam belajar**, dan **kualitas pengajaran** menjadi faktor yang memiliki pengaruh terbesar terhadap nilai ujian.
-- **Motivasi siswa**: Berdasarkan tabel rata-rata skor ujian, siswa dengan motivasi tinggi memiliki rata-rata skor ujian tertinggi (67.74), dibandingkan dengan yang memiliki motivasi sedang atau rendah​.
-- **Jam belajar**: Distribusi data menunjukkan bahwa siswa yang belajar lebih banyak jam cenderung memiliki nilai ujian yang lebih baik, yang mencerminkan hubungan positif antara jam belajar dan skor.
-- **Kualitas pengajaran**: Siswa dengan kualitas pengajaran tinggi menunjukkan rata-rata skor ujian yang lebih baik (67.66), dibandingkan dengan yang menerima pengajaran berkualitas sedang atau rendah​.
 
 ### Model Prediksi Terbaik  
 Dari berbagai model yang diuji (**Linear Regression**, **Decision Tree**, **Random Forest**, **Gradient Boosting**, dan **Support Vector Regression**), **Linear Regression** menunjukkan performa terbaik dengan nilai **MSE terendah (3.51)** dan **MAE terendah (0.45)**. Hal ini mengindikasikan bahwa model ini memiliki kemampuan prediksi yang paling akurat dalam kasus ini.
 
+### Faktor Utama yang Mempengaruhi Nilai Ujian  
+Berdasarkan analisis feature importance menggunakan metode SHAP, didapatkan 5 fitur dengan pengaruh paling signifikan terhadap nilai ujian adalah sebagai berikut:
+1. **Attendance**
+2. **Hours_Studied**
+3. **Access_to_Resources**
+4. **Parental_Involvement**
+5. **Previous_Scores**
+
 ### Implikasi Praktis  
-- **Untuk Sekolah**: Fokus pada peningkatan kualitas guru dan memberikan dukungan motivasi kepada siswa. Program tambahan, seperti sesi bimbingan belajar, dapat dirancang untuk siswa dengan hasil prediksi rendah.  
-- **Untuk Orang Tua**: Keterlibatan aktif dalam pendidikan anak dan menciptakan lingkungan belajar yang kondusif dapat meningkatkan hasil akademik.  
-- **Untuk Kebijakan Pendidikan**: Investasi dalam infrastruktur pendidikan, akses sumber daya, dan pelatihan guru dapat memberikan dampak positif yang signifikan.  
+- **Untuk Sekolah**: Peningkatan kehadiran siswa sangat penting. Sekolah dapat merancang kebijakan yang memotivasi siswa untuk hadir secara teratur, seperti memberikan penghargaan bagi siswa dengan kehadiran tinggi atau meningkatkan keterlibatan siswa dalam aktivitas kelas. Selain itu, program belajar tambahan atau bimbingan dapat dioptimalkan untuk membantu siswa yang kurang hadir.  
+- **Untuk Orang Tua**: Orang tua harus lebih terlibat dalam proses pendidikan anak, khususnya dalam mendukung jam belajar dan kehadiran mereka di sekolah. Orang tua dapat membantu menciptakan rutinitas belajar yang lebih terstruktur di rumah dan memotivasi anak untuk berpartisipasi aktif dalam kegiatan sekolah.  
+- **Untuk Kebijakan Pendidikan**: Memperbaiki akses ke sumber daya pendidikan sangat penting untuk mendukung hasil akademik. Pemerintah dan lembaga pendidikan dapat meningkatkan kualitas fasilitas pendidikan, memperluas akses ke alat belajar yang lebih baik, serta memastikan bahwa siswa mendapatkan dukungan yang cukup dari lingkungan sosial mereka.  
 
 ### Rekomendasi Intervensi Berbasis Data  
-1. Program pengembangan motivasi intrinsik siswa.  
-2. Pengelolaan jam belajar dan jadwal tidur yang sehat.  
-3. Peningkatan keterlibatan orang tua melalui workshop atau seminar.
+1. **Peningkatan Kehadiran Siswa**: Mengimplementasikan program penghargaan atau insentif untuk siswa yang memiliki kehadiran tinggi, serta menyediakan sistem pemantauan untuk mendeteksi siswa dengan tingkat absensi tinggi dan memberikan dukungan tambahan.  
+2. **Peningkatan Jam Belajar**: Sekolah dapat menyediakan lebih banyak sesi bimbingan atau kelas tambahan untuk mendukung jam belajar siswa, terutama bagi mereka yang membutuhkan bantuan lebih.  
+3. **Peningkatan Akses ke Sumber Daya Pendidikan**: Menyediakan lebih banyak akses ke bahan ajar digital, buku, atau alat bantu belajar lainnya, dan memperbaiki infrastruktur sekolah untuk mendukung pembelajaran yang lebih baik.  
+4. **Keterlibatan Orang Tua**: Menyelenggarakan lebih banyak kegiatan yang melibatkan orang tua, seperti workshop atau seminar tentang cara mendukung anak-anak mereka dalam belajar dan menciptakan lingkungan belajar yang kondusif di rumah.  
+5. **Peningkatan Kualitas Pendidikan Sebelumnya**: Memberikan dukungan ekstra kepada siswa yang memiliki skor rendah sebelumnya, termasuk sesi remedial atau bimbingan khusus, agar mereka dapat mengejar ketertinggalan dan memperbaiki hasil akademiknya.
 
