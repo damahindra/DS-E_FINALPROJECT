@@ -46,7 +46,7 @@ Proyek ini bertujuan untuk mengatasi beberapa masalah yang diidentifikasi terkai
 
 Berdasarkan problem statements, berikut tujuan yang ingin dicapai pada proyek ini:
 
-1. Mengetahui hubungan antara faktor-faktor seperti jam belajar, tingkat kehadiran, dukungan orang tua, dan motivasi terhadap nilai ujian siswa.
+1. Mengetahui hubungan antara faktor-faktor seperti jam belajar, tingkat kehadiran, motivasi, dan faktor-faktor relevan lainnya terhadap nilai ujian siswa.
 2. Mengidentifikasi faktor utama yang memiliki dampak terbesar terhadap nilai ujian siswa.
 3. Menemukan model terbaik dengan akurasi tertinggi untuk memprediksi nilai ujian siswa berdasarkan faktor-faktor yang telah ditentukan.
 
