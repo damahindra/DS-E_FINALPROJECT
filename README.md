@@ -273,6 +273,22 @@ Hasil analisis di atas dapat diinterpretasikan sebagai berikut:
 - Extracurricular_Activities: Mahasiswa yang terlibat dalam kegiatan ekstrakurikuler memiliki rata-rata skor ujian yang lebih tinggi (67.45) dibandingkan dengan yang tidak terlibat (66.95).
 - Motivation_Level: Mahasiswa dengan motivasi tinggi memiliki rata-rata skor ujian yang lebih tinggi (67.74) dibandingkan dengan yang rendah (66.75) atau sedang (67.34). Variabel lainnya juga menunjukkan perbedaan rata-rata skor ujian, meskipun mungkin tidak terlalu signifikan.
 
+![image](https://github.com/user-attachments/assets/144243cb-8d39-4856-bd28-fb433da19106)
+
+Berdasarkan heatmap yang ditunjukkan, dapat disimpulkan bahwa:
+*   Terdapat korelasi positif yang kuat antara variabel-variabel tertentu,
+yaitu jam belajar (Hours_Studied) dengan skor ujian (Exam_Score), serta kehadiran (Attendance) dengan skor ujian.
+*   Terdapat korelasi positif yang lemah antara variabel-variabel tertentu,
+yaitu nilai sebelumnya (Previous_Score) dengan skor ujian (Exam_Score), serta banyak sesi les (Tutoring_Sessions) dengan skor ujian.
+
+![image](https://github.com/user-attachments/assets/51dce7a4-18bc-4a0f-a8fc-56b5d5586dbd)
+
+Berdasarkan plot scatter yang disajikan, dapat disimpulkan bahwa:
+*   Terdapat korelasi positif yang kuat antara persentase kehadiran siswa dan nilai ujian. Semakin tinggi kehadiran, semakin tinggi pula nilai ujian yang diraih.
+*   Terdapat korelasi positif yang kuat antara jam belajar per minggu siswa dan nilai ujian. Semakin banyak jam belajar, semakin tinggi pula nilai ujian yang diraih.
+*   Terdapat korelasi positif lemah antara nilai siswa sebelumnya dan nilai ujian. Dapat diartikan nilai sebelumnya hanya sedikit mempengaruhi nilai ujian.
+*   Terdapat korelasi positif yang cukup kuat antara sesi les yang diikuti siswa per bulan dan nilai ujian. Tren visualnya menunjukkan garis tren yang naik, artinya semakin banyak sesi les yang diikuti, nilai ujian cenderung juga semakin tinggi, namun penyebaran data terlihat lebih banyak di bagian kiri.
+
 ## Data Preparation
 ### Encoding
 Encoding adalah proses mengubah nilai kategorikal dalam dataset menjadi nilai numerikal. Hal ini dicapai dengan membuat nilai-nilai unik dalam sebuah fitur menjadi fitur-fitur baru yang didalamnya (sebagai contoh) bernilai 1 untuk mewakili 'ya' dan 0 untuk mewakili 'tidak'. Terdapat 3 macam teknik encoding yang digunakan, yaitu Categorical Encoding, One Hot Encoding, dan Ordinal Encoding.
