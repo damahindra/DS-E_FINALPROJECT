@@ -81,6 +81,8 @@ Berdasarkan problem statements, berikut tujuan yang ingin dicapai pada proyek in
 
 ## Data Understanding
 
+### Informasi Dataset
+
 Sumber: [Student Performance Factors](https://www.kaggle.com/datasets/lainguyn123/student-performance-factors/data), Kaggle
 
 Dataset yang digunakan memuat dimensi sebesar **6,607 baris** dan **20 kolom**. Untuk kolom yang terdapat pada dataset dijabarkan sebagai berikut:
@@ -108,6 +110,44 @@ Dataset yang digunakan memuat dimensi sebesar **6,607 baris** dan **20 kolom**. 
 | 19  | Gender                   | Jenis kelamin siswa (Male, Female).                                                                    | object    |
 | 20  | Exam_Score               | Nilai akhir ujian siswa.                                                                               | int64     |
 
+### Cek Nilai Null dan Nilai Duplikat
+
+Skrip Python cek nilai null
+```
+pd.DataFrame({'Missing Value':df_cleaned.isnull().sum()})
+```
+
+| No. | Nama Fitur               | Missing Value |
+|-----|--------------------------|---------------|
+| 1   | Hours_Studied            | 0             |
+| 2   | Attendance               | 0             |
+| 3   | Parental_Involvement     | 0             |
+| 4   | Access_to_Resources      | 0             |
+| 5   | Extracurricular_Activities | 0           |
+| 6   | Sleep_Hours              | 0             |
+| 7   | Previous_Scores          | 0             |
+| 8   | Motivation_Level         | 0             |
+| 9   | Internet_Access          | 0             |
+| 10  | Tutoring_Sessions        | 0             |
+| 11  | Family_Income            | 0             |
+| 12  | Teacher_Quality          | 78            |
+| 13  | School_Type              | 0             |
+| 14  | Peer_Influence           | 0             |
+| 15  | Physical_Activity        | 0             |
+| 16  | Learning_Disabilities    | 0             |
+| 17  | Parental_Education_Level | 90            |
+| 18  | Distance_from_Home       | 67            |
+| 19  | Gender                   | 0             |
+| 20  | Exam_Score               | 0             |
+
+Skrip Python cek nilai duplikat
+```
+df_cleaned.duplicated().sum()
+```
+
+0
+
+Dari hasil di atas, kolom **Teacher_Quality** terdapat 78 missing values, **Parental_Education_Level** terdapat 90 missing values dan **Distance_from_home** terdapat 67 missing values sehingga dibutuhkan proses _handling_ untuk menangani nilai-nilai _null_ tersebut. Tidak terdapat nilai duplikat dalam dataset yang digunakan.
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
